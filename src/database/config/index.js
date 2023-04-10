@@ -1,3 +1,3 @@
 const connnection = require('./connection');
 
-module.exports = {connnection};
+module.exports = connnection;

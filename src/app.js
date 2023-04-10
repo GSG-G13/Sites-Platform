@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const cookieParser = require('cookie-parser');
 const { join } = require('path');
 const router = require('./router');
 app.use(express.json());

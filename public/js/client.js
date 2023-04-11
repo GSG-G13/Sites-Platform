@@ -65,8 +65,8 @@ const createPost = (data) => {
 
 }
 
-fetch('/users/posts').then(res => res.json()).then(data => data.forEach(element => {
-    creatRow(element);
+fetch('/users/posts').then(res => res.json()).then(data => data.data.forEach(element => {
+    createPost(element);
 }));
 
 

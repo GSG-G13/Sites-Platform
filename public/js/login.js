@@ -12,5 +12,6 @@ signin.addEventListener('submit', (e) => {
     },
     body: JSON.stringify(data)
   })
-
+  .then(result => result.json())
+  .catch(console.log)
 })

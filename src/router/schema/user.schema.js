@@ -6,5 +6,9 @@ const signUpSchema = Joi.object({
   password: Joi.string().required(),
   photo: Joi.string().required()
 })
+const signinSchema = Joi.object({
+  email: Joi.string().email().required(),
+  password: Joi.string().required()
+})
 
-module.exports = { signUpSchema }
+module.exports = { signUpSchema,signinSchema }

@@ -17,7 +17,6 @@ const signinController = (req, res) => {
       return;
     }
     
-      
       signinQuery({email})
         .then((data) => {
           bcrypt.compare(req.body.password,data.rows[0].password).then(result=>{

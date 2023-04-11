@@ -11,7 +11,7 @@ const path = require('path');
 // }
 homeRouter.get('/posts', getPosts);
 homeRouter.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../public/html/users/home.html'))
+    res.sendFile(path.join(__dirname, '..', '..', 'public', 'html', 'users', 'home.html'))
 })
 
 module.exports = homeRouter

@@ -3,7 +3,6 @@ userForm.addEventListener('submit', (e)=>{
   e.preventDefault()
   const obj = new FormData(userForm);
   const data = Object.fromEntries(obj)
-  console.log(data);
   fetch('/users/createuser',{
     method: 'POST',
     headers: {

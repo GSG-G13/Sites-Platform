@@ -3,7 +3,8 @@ const { signinSchema } = require('../../router/schema/user.schema')
 const bcrypt = require('bcryptjs')
 const path = require('path');
 
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+
 const signinController = (req, res) => {
   const { email, password } = req.body;
   const { error, value } = signinSchema.validate({ email, password }, { abortEarly: false })
@@ -16,22 +17,29 @@ const signinController = (req, res) => {
     });
     return;
   }
-
-
   signinQuery({ email })
     .then((data) => {
-      bcrypt.compare(req.body.password, data.rows[0].password).then(result => {
-        const accesstoken = jwt.sign({
-          data: data.rows[0].email
-        }, 'potato')
-        res.cookie('accesstoken', accesstoken).json(accesstoken)
-        res.redirect('/users/home')
-      })
-
+      bcrypt.compare(password, data.rows[0].password)
+        .then((result) => {
+          const accessToken = jwt.sign({ data: data.rows[0].email }, 'potato');
+          res.cookie('accessToken', accessToken);
+          res.redirect('http://localhost:3000/users/home')
+        })
+        .catch((error) => {
+          console.log(error);
+          res.send('Invalid password');
+        });
     })
-    .catch(console.log)
-
+    .catch((error) => {
+      console.log(error);
+      res.send('User not found');
+    });
 
 }
+
+
+
+
+
 
 module.exports = signinController;

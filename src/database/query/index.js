@@ -1,3 +1,3 @@
-const { signUpUserQuery } = require("./users");
+const { signUpUserQuery,signinQuery } = require("./users");
 
-module.exports = { signUpUserQuery }
+module.exports = { signUpUserQuery,signinQuery }

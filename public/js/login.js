@@ -1,9 +1,10 @@
 const signin = document.querySelector('.sign');
-signin.addEventListener('submit', (e)=>{
+signin.addEventListener('submit', (e) => {
   e.preventDefault()
-  const obj = new FormData(userForm);
+  const obj = new FormData(signin);
   const data = Object.fromEntries(obj)
-  fetch('/users/signinuser',{
+  console.log(data);
+  fetch('/users/signinuser', {
     method: 'POST',
     headers: {
       'Accept': 'application/json, text/plain, */*',

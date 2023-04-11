@@ -18,6 +18,7 @@ const signUpController = (req, res) => {
     return;
   }
   hashed(password,(err,result)=>{
+    
     signUpUserQuery({username,email, password: result, photo})
     .then(() => res.status(201).json({
       error: false,
@@ -31,3 +32,4 @@ const signUpController = (req, res) => {
 }
 
 module.exports = signUpController
+

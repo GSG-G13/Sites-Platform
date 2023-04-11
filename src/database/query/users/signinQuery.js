@@ -1,10 +1,10 @@
 const  connection  = require('../../config');
 
 const signinQuery = (userData) => {
-  const { email, password } = userData;
+  const { email} = userData;
 
   const sql = {
-    text: 'SELECT email, password FROM users where email=$1 ;' ,
+    text: 'SELECT username, email,password, photo FROM users where email=$1 ;' ,
      values: [email] 
   }
 

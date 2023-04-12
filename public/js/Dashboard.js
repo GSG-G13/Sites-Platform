@@ -60,7 +60,7 @@ form.addEventListener("submit", (e) => {
 
 });
 
-const getDataUser = ()=>{
+const getDataUser = () => {
   fetch('/users/post', {
     method: 'GET',
     headers: {
@@ -68,11 +68,11 @@ const getDataUser = ()=>{
       'Content-Type': 'application/json'
     }
   })
-  .then(response => response.json())
-  .then(data => {
-    createPost(data)
-  })
-  .catch(error => console.error(error))
-  
+    .then(response => response.json())
+    .then(data => {
+      createPost(data)
+    })
+    .catch(error => console.error(error))
+
 }
 getDataUser();

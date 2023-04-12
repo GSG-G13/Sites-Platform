@@ -1,6 +1,5 @@
 const main = document.querySelector('.main');
 const userName = document.querySelector('.userName')
-// const searchBar = document.querySelector("#search-form").querySelector("input");
 const nav = document.querySelector('.nav');
 const user = (data) => {
     const user = document.createElement('div')
@@ -8,7 +7,7 @@ const user = (data) => {
     const img = document.createElement('img');
     img.src = data.photo;
     const link = document.createElement('a')
-    link.setAttribute("href",'/users/dashboard')
+    link.setAttribute("href", '/users/dashboard')
     const h2 = document.createElement('h2')
     h2.textContent = data.username
     link.appendChild(h2)
@@ -52,9 +51,18 @@ const createPost = (data) => {
     friendsName.appendChild(timePara);
     imgAndName.appendChild(friendsName);
 
+    const mainContent = document.createElement('div');
+    mainContent.classList.add('mainContent');
+
     const title = document.createElement('p');
     title.classList.add('title');
     title.textContent = data.title;
+
+    const link = document.createElement('a');
+    link.classList.add('live');
+    link.textContent = 'live';
+    link.setAttribute('target', "_blank");
+    link.href = data.url;
 
 
     const img2 = document.createElement('img');
@@ -71,7 +79,9 @@ const createPost = (data) => {
 
     friendPostTop.appendChild(imgAndName);
     container.appendChild(img2);
-    container.appendChild(title);
+    mainContent.appendChild(title);
+    mainContent.appendChild(link);
+    container.appendChild(mainContent);
     container.appendChild(friendPostTop);
     info.appendChild(description);
     container.appendChild(info);
@@ -85,22 +95,22 @@ fetch('/users/posts').then(res => res.json()).then(data => data.data.forEach(ele
     createPost(element);
 }));
 
-userName.addEventListener('click',()=>{
+userName.addEventListener('click', () => {
     fetch('/users/Dashboard', {
         method: 'GET',
         headers: {
-          'Accept': 'application/json, text/plain, */*',
-          'Content-Type': 'text/html'
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'text/html'
         }
-      })  
-      .then(res => res.json())
-      .then(data => {
-        console.log(data.message);
-        if(data.message === "Success"){
-          window.location.href = "/users/Dashboard";
-        }
-      })
-      .catch(console.log)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data.message);
+            if (data.message === "Success") {
+                window.location.href = "/users/Dashboard";
+            }
+        })
+        .catch(console.log)
 })
 fetch('/users/posts').then(res => res.json()).then(data => {
     data.data.forEach(element => {

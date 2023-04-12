@@ -20,9 +20,6 @@ const signinController = (req, res) => {
 
   signinQuery({ email })
     .then((data) => {
-      const accesstoken = jwt.sign({
-        data: data.rows[0].email
-      }, 'potato')
       if (data.rowCount) {
         return bcrypt.compare(password, data.rows[0].password).then((result) => {
           if (result) {
@@ -39,10 +36,8 @@ const signinController = (req, res) => {
       } else {
         res.status(401).json({ message: "Please Create Account First" });
       }
-
     })
     .catch(console.log)
-
 
 }
 module.exports = signinController;

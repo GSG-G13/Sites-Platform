@@ -1,5 +1,4 @@
 const homeRouter = require('express').Router();
-const { log } = require('console');
 const { getPosts } = require('../controller');
 const jwt = require('jsonwebtoken');
 const path = require('path');

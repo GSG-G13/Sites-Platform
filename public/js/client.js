@@ -15,7 +15,6 @@ const createPost = (data) => {
     const container = document.createElement('div');
     container.classList.add('friends_post');
 
-
     const friendPostTop = document.createElement('div');
     friendPostTop.classList.add('friend_post_top');
 
@@ -43,12 +42,13 @@ const createPost = (data) => {
     userGroupIcon.classList.add('fa-solid', 'fa-user-group');
 
     timePara.appendChild(userGroupIcon);
+    imgAndName.appendChild(img);
     friendsName.appendChild(friendsNamePara);
     friendsName.appendChild(timePara);
-    imgAndName.appendChild(img);
     imgAndName.appendChild(friendsName);
 
     const title = document.createElement('p');
+    title.classList.add('title');
     title.textContent = data.title;
 
 
@@ -65,9 +65,9 @@ const createPost = (data) => {
     description.textContent = data.description
 
     friendPostTop.appendChild(imgAndName);
-    container.appendChild(friendPostTop);
-    container.appendChild(title);
     container.appendChild(img2);
+    container.appendChild(title);
+    container.appendChild(friendPostTop);
     info.appendChild(description);
     container.appendChild(info);
 

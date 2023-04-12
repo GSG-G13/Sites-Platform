@@ -155,11 +155,11 @@
 					<h2>Sign In</h2>
 					<form class="form sign"  >
 						<div class="inputBx">
-							<input type="email" name="email" required>
+							<input type="email" name="email" required id="email">
 							<i>email</i>
 						</div>
 						<div class="inputBx">
-							<input type="password" name="password" required autocomplete="on">
+							<input type="password" name="password" required autocomplete="on" id="password">
 							<i>Password</i>
 						</div>
 						<div class="links">
@@ -172,6 +172,10 @@
 					</form>
 			</div>
 		</section>
+		<script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
     <script src="./js/login.js"></script>
+	
   </body>
 </html>

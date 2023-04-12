@@ -9,7 +9,10 @@ app.use(express.urlencoded({ extended: false }));
 app.disable("x-powered-by");
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(router)
-
+app.get('/logout', (req, res) => {
+    res.clearCookie('accesstoken');
+    res.redirect('/');
+});
 module.exports = { app }
 
 

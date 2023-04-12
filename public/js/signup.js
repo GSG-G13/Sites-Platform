@@ -1,9 +1,9 @@
 const userForm = document.querySelector('.form2');
-userForm.addEventListener('submit', (e)=>{
+userForm.addEventListener('submit', (e) => {
   e.preventDefault()
   const obj = new FormData(userForm);
   const data = Object.fromEntries(obj)
-  fetch('/users/createuser',{
+  fetch('/users/createuser', {
     method: 'POST',
     headers: {
       'Accept': 'application/json, text/plain, */*',
@@ -11,7 +11,6 @@ userForm.addEventListener('submit', (e)=>{
     },
     body: JSON.stringify(data)
   })
-  .then(result => result.json())
-  .then(data => console.log(data))
-  .catch(console.log)
+    .then(result => result.json())
+    .catch(console.log)
 })

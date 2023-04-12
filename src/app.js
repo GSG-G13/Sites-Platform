@@ -9,8 +9,4 @@ app.use(express.urlencoded({ extended: false }));
 app.disable("x-powered-by");
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(router)
-
 module.exports = { app }
-
-
-

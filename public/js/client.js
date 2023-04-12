@@ -71,6 +71,8 @@ fetch('/users/posts').then(res => res.json()).then(data => data.data.forEach(ele
 
 
 
+
+
 // const searchByUsername=(searchTerm, data)=> {
 //     // Filter the data array for objects with a matching username
 //     const results = data.filter(obj => obj.username.toLowerCase() === searchTerm.toLowerCase());

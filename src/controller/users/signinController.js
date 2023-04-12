@@ -2,7 +2,6 @@ const { signinQuery } = require('../../database/query');
 const { signinSchema } = require('../../router/schema/user.schema')
 const bcrypt = require('bcryptjs')
 const path = require('path');
-
 const jwt = require('jsonwebtoken');
 
 const signinController = (req, res) => {
@@ -24,22 +23,14 @@ const signinController = (req, res) => {
          const accesstoken = jwt.sign({
               data: data.rows[0].email
             },'potato')
-              res.cookie('accesstoken',accesstoken)
-              res.redirect("/users/posts")
-          })
-     
+              res.cookie('accesstoken',accesstoken).json({ message: "Success"});
+              // res.cookie('accesstoken',accesstoken).redirect("/users/home");
+          });
       })
         .catch(console.log)
 
   
   }
-
-
-
-
-
-
-
 
 
 module.exports = signinController;

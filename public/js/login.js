@@ -3,7 +3,6 @@ signin.addEventListener('submit', (e) => {
   e.preventDefault()
   const obj = new FormData(signin);
   const data = Object.fromEntries(obj)
-  console.log(data);
   fetch('/users/signinuser', {
     method: 'POST',
     headers: {
@@ -13,5 +12,10 @@ signin.addEventListener('submit', (e) => {
     body: JSON.stringify(data)
   })
   .then(result => result.json())
+  .then(data => {
+    if(data.message === "Success"){
+      window.location.href = "/users/home";
+    }
+  })
   .catch(console.log)
 })

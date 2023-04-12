@@ -14,5 +14,4 @@ userForm.addEventListener('submit', (e)=>{
   .then(result => result.json())
   .then(data => console.log(data))
   .catch(console.log)
-
 })

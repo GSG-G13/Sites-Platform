@@ -21,6 +21,10 @@ const createPost = (data) => {
     const description = document.createElement('p');
     description.className = 'description';
     description.textContent = data[i].description;
+    setTimeout(()=>{
+      container.style.transform = 'translateX(0px)'
+    },100)
+
 
     info.appendChild(description);
     container.appendChild(title);

@@ -66,6 +66,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
   }
   .friends_post{
     margin: 10px 0;
@@ -75,6 +76,8 @@ body{
     padding: 10px 15px;
     border-radius: 7px;
     box-shadow: 0 1px 8px #08ddd2a1;
+    transform: translateX(1500px);
+    transition: 0.5s ease-in-out;
 }
 .logo {
     color: #08ddd2;
@@ -206,4 +209,25 @@ h2 {
 }
 .fa-magnifying-glass {
     color: #7d8590;
+}
+
+.errorDiv{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    transform: scale(0);
+    transition: 0.5s ease-in-out;
+}
+
+.errorPara{
+    background-color: #00deff;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: #f31212;
+    font-weight: 700;
 }

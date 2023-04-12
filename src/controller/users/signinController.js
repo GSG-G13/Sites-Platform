@@ -3,6 +3,7 @@ const { signinSchema } = require('../../router/schema/user.schema')
 const bcrypt = require('bcryptjs')
 const path = require('path');
 const jwt = require('jsonwebtoken');
+const { log } = require('console');
 
 const signinController = (req, res) => {
   const { email, password } = req.body;
@@ -42,8 +43,4 @@ const signinController = (req, res) => {
 
 
 }
-
-
-
-
 module.exports = signinController;

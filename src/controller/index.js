@@ -1,6 +1,7 @@
 const signUpController = require('./users/signupController');
-const getPosts = require('./posts')
+const signinController = require('./users/signinController')
 
-const signinController = require('./users/signinController');
+const {CreatePostController,getPosts} = require('./posts');
 
-module.exports = { signUpController, signinController, getPosts }
+
+module.exports = { signUpController,signinController, CreatePostController, getPosts }

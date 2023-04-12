@@ -4,7 +4,7 @@ const signinQuery = (userData) => {
   const { email} = userData;
 
   const sql = {
-    text: 'SELECT username, email,password, photo FROM users where email=$1 ;' ,
+    text: 'SELECT id,username, email,password, photo FROM users where email=$1 ;' ,
      values: [email] 
   }
 

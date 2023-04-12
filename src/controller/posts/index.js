@@ -1,2 +1,4 @@
+const CreatePostController = require('./createPostController')
+
 const getPosts = require('./getPostsController')
-module.exports = getPosts;
+module.exports = {getPosts,CreatePostController};

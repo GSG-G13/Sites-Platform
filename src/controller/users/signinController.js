@@ -6,17 +6,17 @@ const jwt = require('jsonwebtoken');
 const { log } = require('console');
 
 const signinController = (req, res) => {
-    const { email, password } = req.body;
-    const { error, value } = signinSchema.validate({ email, password }, { abortEarly: false })
-    if (error) {
-      res.status(400).json({
-        error: true,
-        data: {
-          errors: error.details
-        }
-      });
-      return;
-    }
+  const { email, password } = req.body;
+  const { error, value } = signinSchema.validate({ email, password }, { abortEarly: false })
+  if (error) {
+    res.status(400).json({
+      error: true,
+      data: {
+        errors: error.details
+      }
+    });
+    return;
+  }
   signinQuery({ email })
     .then((data) => {
       if (data.rowCount) {

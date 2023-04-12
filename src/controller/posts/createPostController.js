@@ -1,8 +1,4 @@
 const { CreatePost, getPost } = require("../../database/query/posts/createPostQuery");
-
-
-
-
 const CreatePostController = (req, res) => {
   const userPost = req.body;
   const { mytoken } = req;
@@ -12,5 +8,4 @@ const CreatePostController = (req, res) => {
     res.status(200).json(result.rows)
   });
 }
-
 module.exports = CreatePostController;

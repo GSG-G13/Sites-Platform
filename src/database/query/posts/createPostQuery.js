@@ -17,7 +17,10 @@ const getPost = (mytoken) => {
             p.title,
             p.description,
             p.url,
-            p.photo_website 
+            p.photo_website,
+            u.photo,
+            u.username,
+            p.created_at
           from posts p 
           join users u
             on u.id = p.user_id

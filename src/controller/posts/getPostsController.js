@@ -2,13 +2,16 @@ const { getAllposts } = require('../../database/query');
 
 
 const getPosts = (req, res) => {
-    console.log(req.cookie);
+
 
     getAllposts().then((data) => {
 
         res.json({
             error: false,
-            data: data.rows
+            data: data.rows,
+            username: req.mytoken.username,
+            photo: req.mytoken.photo,
+
         })
     })
 

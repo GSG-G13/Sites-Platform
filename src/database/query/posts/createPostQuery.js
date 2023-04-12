@@ -1,9 +1,9 @@
 const connection = require("../../config");
 
-const CreatePost = (userPost, userId) => {
-  console.log(userPost)
-  const user_id = userId
+const CreatePost = (userPost, mytoken) => {
+  const user_id = mytoken.id
   const { title, description, url, photo_website } = userPost;
+  console.log(userPost)
   const sql = {
     text: " INSERT INTO posts (title, url, description, photo_website, user_id) VALUES ($1,$2,$3,$4,$5)",
     values: [title, description, url, photo_website, user_id]
@@ -12,7 +12,7 @@ const CreatePost = (userPost, userId) => {
 }
 
 
-const getPost = (user_id) => {
+const getPost = (mytoken) => {
   const sql = {
     text: `select 
             p.title,
@@ -23,7 +23,7 @@ const getPost = (user_id) => {
           join users u
             on u.id = p.user_id
           where u.id = $1`,
-    values: [user_id]
+    values: [mytoken.id]
   };
   return connection.query(sql);
 };

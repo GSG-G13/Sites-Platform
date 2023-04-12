@@ -8,3 +8,5 @@ const GetUserPostsController = (req, res) => {
   });
 }
 module.exports = GetUserPostsController;
+
+

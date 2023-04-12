@@ -20,7 +20,6 @@ const signinController = (req, res) => {
 
   signinQuery({ email })
     .then((data) => {
-      console.log(data.rows[0].id)
       bcrypt.compare(req.body.password, data.rows[0].password).then(result => {
         const accesstoken = jwt.sign({
           id: data.rows[0].id,

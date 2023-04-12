@@ -1,4 +1,5 @@
 const main = document.querySelector('.main');
+const userName = document.querySelector('.userName')
 // const searchBar = document.querySelector("#search-form").querySelector("input");
 const createPost = (data) => {
     const container = document.createElement('div');
@@ -69,3 +70,21 @@ const createPost = (data) => {
 fetch('/users/posts').then(res => res.json()).then(data => data.data.forEach(element => {
     createPost(element);
 }));
+
+userName.addEventListener('click',()=>{
+    fetch('/users/Dashboard', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'text/html'
+        }
+      })  
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.message);
+        if(data.message === "Success"){
+          window.location.href = "/users/Dashboard";
+        }
+      })
+      .catch(console.log)
+})

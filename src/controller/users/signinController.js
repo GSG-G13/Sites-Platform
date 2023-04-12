@@ -24,7 +24,6 @@ const signinController = (req, res) => {
               data: data.rows[0].email
             },'potato')
               res.cookie('accesstoken',accesstoken).json({ message: "Success"});
-              // res.cookie('accesstoken',accesstoken).redirect("/users/home");
           });
       })
         .catch(console.log)

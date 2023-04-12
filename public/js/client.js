@@ -2,7 +2,7 @@ const main = document.querySelector('.main');
 // const searchBar = document.querySelector("#search-form").querySelector("input");
 const createPost = (data) => {
     const container = document.createElement('div');
-    container.classList.add('friend_post');
+    container.classList.add('friends_post');
 
 
     const friendPostTop = document.createElement('div');
@@ -26,7 +26,8 @@ const createPost = (data) => {
 
     const timePara = document.createElement('p');
     timePara.classList.add('time');
-    timePara.textContent = data.created_at;
+    const newData = data.created_at;
+    timePara.textContent = newData.slice(0,16).split('T').join(' ');
     const userGroupIcon = document.createElement('i');
     userGroupIcon.classList.add('fa-solid', 'fa-user-group');
     timePara.appendChild(userGroupIcon);
@@ -68,15 +69,3 @@ const createPost = (data) => {
 fetch('/users/posts').then(res => res.json()).then(data => data.data.forEach(element => {
     createPost(element);
 }));
-
-
-
-
-
-// const searchByUsername=(searchTerm, data)=> {
-//     // Filter the data array for objects with a matching username
-//     const results = data.filter(obj => obj.username.toLowerCase() === searchTerm.toLowerCase());
-    
-//     // Return the results array
-//     return results;
-//   }

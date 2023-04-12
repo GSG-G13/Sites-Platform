@@ -1,5 +1,7 @@
 
 const form = document.querySelector(".form");
+const userName = document.querySelector('.userName')
+const imgNav = document.querySelector('.user img');
 //fetch
 
 
@@ -76,3 +78,8 @@ const getDataUser = () => {
 
 }
 getDataUser();
+fetch('/users/posts').then(res => res.json()).then(data => {
+  imgNav.src = data.photo;
+  userName.textContent = data.username;
+}
+);

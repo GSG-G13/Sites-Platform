@@ -3,7 +3,6 @@ const connection = require("../../config");
 const CreatePost = (userPost, mytoken) => {
   const user_id = mytoken.id
   const { title, description, url, photo_website } = userPost;
-  console.log(userPost)
   const sql = {
     text: " INSERT INTO posts (title, url, description, photo_website, user_id) VALUES ($1,$2,$3,$4,$5)",
     values: [title, description, url, photo_website, user_id]
@@ -28,5 +27,5 @@ const getPost = (mytoken) => {
   return connection.query(sql);
 };
 
-module.exports = { CreatePost,getPost };
+module.exports = { CreatePost, getPost };
 

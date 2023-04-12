@@ -17,10 +17,6 @@ const signinController = (req, res) => {
       });
       return;
     }
-
-  
-  
-
   signinQuery({ email })
     .then((data) => {
       if (data.rowCount) {

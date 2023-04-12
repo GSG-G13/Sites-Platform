@@ -1,20 +1,9 @@
 const main = document.querySelector('.main');
 const userName = document.querySelector('.userName')
 const nav = document.querySelector('.nav');
-const user = (data) => {
-    const user = document.createElement('div')
-    user.classList.add('user')
-    const img = document.createElement('img');
-    img.src = data.photo;
-    const link = document.createElement('a')
-    link.setAttribute("href", '/users/dashboard')
-    const h2 = document.createElement('h2')
-    h2.textContent = data.username
-    link.appendChild(h2)
-    user.appendChild(link)
-    user.appendChild(img)
-    nav.appendChild(user)
-}
+const imgNav = document.querySelector('.user img');
+const linkUserName = document.querySelector('.user a');
+
 const createPost = (data) => {
     const container = document.createElement('div');
     container.classList.add('friends_post');
@@ -105,7 +94,6 @@ userName.addEventListener('click', () => {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data.message);
             if (data.message === "Success") {
                 window.location.href = "/users/Dashboard";
             }
@@ -113,9 +101,11 @@ userName.addEventListener('click', () => {
         .catch(console.log)
 })
 fetch('/users/posts').then(res => res.json()).then(data => {
+    main.textContent = '';
     data.data.forEach(element => {
         createPost(element);
     })
-    user(data);
+    imgNav.src = data.photo;
+    userName.textContent = data.username;
 }
 );

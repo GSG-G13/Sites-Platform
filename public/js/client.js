@@ -1,13 +1,18 @@
 const main = document.querySelector('.main');
+const userName = document.querySelector('.userName')
+// const searchBar = document.querySelector("#search-form").querySelector("input");
 const nav = document.querySelector('.nav');
 const user = (data) => {
     const user = document.createElement('div')
     user.classList.add('user')
     const img = document.createElement('img');
     img.src = data.photo;
+    const link = document.createElement('a')
+    link.setAttribute("href",'/users/dashboard')
     const h2 = document.createElement('h2')
     h2.textContent = data.username
-    user.appendChild(h2)
+    link.appendChild(h2)
+    user.appendChild(link)
     user.appendChild(img)
     nav.appendChild(user)
 }
@@ -76,6 +81,27 @@ const createPost = (data) => {
 
 }
 
+fetch('/users/posts').then(res => res.json()).then(data => data.data.forEach(element => {
+    createPost(element);
+}));
+
+userName.addEventListener('click',()=>{
+    fetch('/users/Dashboard', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'text/html'
+        }
+      })  
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.message);
+        if(data.message === "Success"){
+          window.location.href = "/users/Dashboard";
+        }
+      })
+      .catch(console.log)
+})
 fetch('/users/posts').then(res => res.json()).then(data => {
     data.data.forEach(element => {
         createPost(element);

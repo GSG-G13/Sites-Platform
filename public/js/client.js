@@ -1,6 +1,21 @@
 const main = document.querySelector('.main');
 const userName = document.querySelector('.userName')
 // const searchBar = document.querySelector("#search-form").querySelector("input");
+const nav = document.querySelector('.nav');
+const user = (data) => {
+    const user = document.createElement('div')
+    user.classList.add('user')
+    const img = document.createElement('img');
+    img.src = data.photo;
+    const link = document.createElement('a')
+    link.setAttribute("href",'/users/dashboard')
+    const h2 = document.createElement('h2')
+    h2.textContent = data.username
+    link.appendChild(h2)
+    user.appendChild(link)
+    user.appendChild(img)
+    nav.appendChild(user)
+}
 const createPost = (data) => {
     const container = document.createElement('div');
     container.classList.add('friends_post');
@@ -28,17 +43,16 @@ const createPost = (data) => {
     const timePara = document.createElement('p');
     timePara.classList.add('time');
     const newData = data.created_at;
-    timePara.textContent = newData.slice(0,16).split('T').join(' ');
+    timePara.textContent = newData.slice(0, 16).split('T').join(' ');
     const userGroupIcon = document.createElement('i');
     userGroupIcon.classList.add('fa-solid', 'fa-user-group');
+
     timePara.appendChild(userGroupIcon);
-
-
     friendsName.appendChild(friendsNamePara);
     friendsName.appendChild(timePara);
-
     imgAndName.appendChild(img);
     imgAndName.appendChild(friendsName);
+
     const title = document.createElement('p');
     title.textContent = data.title;
 
@@ -88,3 +102,10 @@ userName.addEventListener('click',()=>{
       })
       .catch(console.log)
 })
+fetch('/users/posts').then(res => res.json()).then(data => {
+    data.data.forEach(element => {
+        createPost(element);
+    })
+    user(data);
+}
+);

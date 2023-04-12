@@ -1,6 +1,4 @@
-let modal = document.querySelector('.form-container');
-let openBtn = document.querySelector('#open-form');
-let closeBtn = document.querySelector('.close');
+
 // const createPost = (data) => {
 //   const container = document.createElement('div');
 //   container.classList.add('friend_post');
@@ -91,17 +89,5 @@ let closeBtn = document.querySelector('.close');
 //   location.reload();
 // });
 
-openBtn.addEventListener('click', function () {
-  modal.style.display = 'block';
-});
 
-closeBtn.addEventListener('click', function () {
-  modal.style.display = 'none';
-});
-
-window.addEventListener('click', function (event) {
-  if (event.target == modal) {
-    modal.style.display = 'none';
-  }
-});
 

@@ -1,3 +1,4 @@
 const signUpController = require('./users/signupController');
 
-module.exports = { signUpController }
+const {CreatePostController} = require('./posts');
+module.exports = { signUpController ,CreatePostController}

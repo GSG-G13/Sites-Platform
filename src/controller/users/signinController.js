@@ -27,7 +27,9 @@ const signinController = (req, res) => {
         return bcrypt.compare(password, data.rows[0].password).then((result) => {
           if (result) {
             const accesstoken = jwt.sign({
-              data: data.rows[0].email
+              id: data.rows[0].id,
+              username: data.rows[0].username,
+              photo: data.rows[0].photo
             }, 'potato')
             res.cookie('accesstoken', accesstoken).json({ message: "Success" });
           } else {

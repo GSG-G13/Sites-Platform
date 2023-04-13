@@ -47,7 +47,7 @@ const createPost = (data) => {
     const timePara = document.createElement('p');
     timePara.classList.add('time');
     const newData = post.created_at;
-    // timePara.textContent = newData.slice(0, 16).split('T').join(' ');
+    timePara.textContent = newData.slice(0, 16).split('T').join(' ');
     const userGroupIcon = document.createElement('i');
     userGroupIcon.classList.add('fa-solid', 'fa-user-group');
 
@@ -62,13 +62,13 @@ const createPost = (data) => {
 
     const title = document.createElement('p');
     title.classList.add('title');
-    title.textContent = data.title;
+    title.textContent = post.title;
 
     const link = document.createElement('a');
     link.classList.add('live');
     link.textContent = 'live';
     link.setAttribute('target', "_blank");
-    link.href = data.url;
+    link.href = post.url;
 
 
     const img2 = document.createElement('img');

@@ -1,14 +1,14 @@
 #open-form,.Submit{
-  background: #08ddd2;
-    height: 30px;
-    border-radius: 30px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.1s;
-    color: white;
-    margin-top: 5px;
+  background: #fff;
+  height: 50px;
+  border-radius: 30px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.1s;
+  color: #13396b;
+  margin-top: 5px;
 }
 body {
   background-color: #0d1117;
@@ -69,18 +69,56 @@ input[type=text],
 input[type=email],
 input[type=url],
 textarea {
-  padding: 10px 0;
+  padding: 10px 1rem;
   border: none;
   background-color: #010409;
   border-radius: 5px;
   width: 100%;
   color: white;
 }
-
 textarea {
   resize: none;
 }
-
-button[type=submit] {
- 
+#open-form{
+ position: absolute;
+    top: 81px;
+    left: 100px;
+}
+.home{
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+  animation-name: home;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in;
+}
+@keyframes home
+{
+  0% 
+  {
+     transform: translateY(0);
+  }
+  100% 
+  {
+    transform: translateY(-20px);
+  }
+}
+.fa-hotel::before {
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 45px;
+  padding-top: 10px;
+  color: #070b70;
+  font-size: 27px;
+  user-select: none;
+  background-color: aliceblue;
+  box-shadow: inset 0px -7px 8px 0px #000000, 0px 3px 8px 3px #8e8eff7d;
+  z-index: 1;
+  background: #cecefa;
+  padding: 1rem;
+  border-radius: 50%;
+  color: blueviolet;
 }

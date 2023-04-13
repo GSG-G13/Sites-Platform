@@ -51,6 +51,18 @@ margin-top: 6rem;
 .friends_post{
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+  }
+  .friends_post{
+    margin: 10px 0;
+    width: 50%;
+    height: auto;
+    background: #181818;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px #08ddd2a1;
+    transform: translateX(1500px);
+    transition: 0.5s ease-in-out;
     max-width: 350px;
     padding: 25px;
     background: linear-gradient(161.11deg,#13396b -.73%,rgba(21,39,63,.3) 101.82%);
@@ -58,7 +70,7 @@ margin-top: 6rem;
     border: 0.5px solid #00000000;
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,.1);
     transition: ease-in-out .8s;
-    transform: scale(1);
+    transform: translateX(1500px) scale(1);
     width: 356px;
     border: 1px solid #7d859070;
 }
@@ -215,6 +227,27 @@ h2 {
 .fa-magnifying-glass {
     color: #7d8590;
 }
+
+.errorDiv{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    transform: scale(0);
+    transition: 0.5s ease-in-out;
+}
+
+.errorPara{
+    background-color: #00deff;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: #f31212;
+    font-weight: 700;
+}
 .fa-right-from-bracket:before, .fa-sign-out-alt:before {
     color: aqua;
     font-size: xx-large;
@@ -240,3 +273,33 @@ h2 {
     position: absolute;
     bottom: 0rem;
 }
+
+.search-bar {
+    background: #08ddd2;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.1s;
+  }
+  .search-bar:hover .input {
+    background: #08ddd2;
+    width: 200px;
+    color: #e6edf3;
+  }
+  .search-bar .input {
+    border: none;
+    outline: none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
+    background: #08ddd2;
+
+  }
+
+  .search-bar .input::placeholder {
+    color: #e6edf3;
+  }

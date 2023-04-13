@@ -63,6 +63,9 @@ const createPost = (data) => {
 
     const info = document.createElement('div');
     info.classList.add('info');
+    setTimeout(()=>{
+      container.style.transform = 'translateX(0px)'
+    },100)
 
     friendPostTop.appendChild(imgAndName);
     container.appendChild(img2);

@@ -1,4 +1,4 @@
-const { CreatePostController } = require("../controller")
+const { CreatePostController, filterpostsController } = require("../controller")
 const { GetUserPostsController } = require("../controller")
 
 const homeRouter = require('express').Router();
@@ -22,6 +22,7 @@ const auth = (req, res, next) => {
 }
 homeRouter.post('/post',auth, CreatePostController)
 homeRouter.get('/post',auth, GetUserPostsController)
+homeRouter.get('/userfilteredposts/:username',auth,filterpostsController)
 homeRouter.get('/posts', auth, getPosts);
 homeRouter.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, '..', '..', 'public', 'html', 'users', 'home.html'))

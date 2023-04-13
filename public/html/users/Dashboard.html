@@ -11,25 +11,26 @@
   <!-- for font awsome -->
   <link rel="stylesheet" href="../../css/all.min.css" />
   <!-- Main css File -->
-  <link rel="stylesheet" href="../../css/users/client.css" />
   <link rel="stylesheet" href="../../css/users/Dashboard.css" />
+  <link rel="stylesheet" href="../../css/users/client.css" />
 </head>
 
 <body>
   <header>
-    <nav>
+    <nav class="nav">
       <div class="logo">
-        <span class="dev">N</span>
-        <span class="dev">A</span>
-        <span class="dev">H</span>
-        <span class="dev">R</span>
+        <a href="/users/home" class="logo">
+          G13
+        </a>
       </div>
-
       <div class="user">
-        <img src="https://th.bing.com/th/id/OIP.PYipJ_hSncugM2SwnZitvgHaEK?pid=ImgDet&w=4550&h=2559&rs=1" alt="">
-        <h2>userName</h2>
+          <img src="https://th.bing.com/th/id/OIP.PYipJ_hSncugM2SwnZitvgHaEK?pid=ImgDet&w=4550&h=2559&rs=1" alt="">
+         <a href="/users/dashboard">
+          <h2 class="userName">userName</h2>
+         </a>
       </div>
     </nav>
+    <a class="logout" href="/users/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
   </header>
   <!--Form-->
   <div class="form-container">

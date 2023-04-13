@@ -6,22 +6,19 @@ const jwt = require('jsonwebtoken');
 const { log } = require('console');
 
 const signinController = (req, res) => {
-    const { email, password } = req.body;
-    const { error, value } = signinSchema.validate({ email, password }, { abortEarly: false })
-    if (error) {
-      res.status(400).json({
-        error: true,
-        data: {
-          errors: error.details
-        }
-      });
-      return;
-    }
+  const { email, password } = req.body;
+  const { error, value } = signinSchema.validate({ email, password }, { abortEarly: false })
+  if (error) {
+    res.status(400).json({
+      error: true,
+      data: {
+        errors: error.details
+      }
+    });
+    return;
+  }
   signinQuery({ email })
     .then((data) => {
-      const accesstoken = jwt.sign({
-        data: data.rows[0].email
-      }, 'potato')
       if (data.rowCount) {
         return bcrypt.compare(password, data.rows[0].password).then((result) => {
           if (result) {
@@ -38,10 +35,8 @@ const signinController = (req, res) => {
       } else {
         res.status(401).json({ message: "Please Create Account First" });
       }
-
     })
     .catch(console.log)
-
 
 }
 module.exports = signinController;

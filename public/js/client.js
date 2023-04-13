@@ -1,21 +1,9 @@
 const main = document.querySelector('.main');
 const userName = document.querySelector('.userName')
-// const searchBar = document.querySelector("#search-form").querySelector("input");
 const nav = document.querySelector('.nav');
-const user = (data) => {
-  const user = document.createElement('div')
-  user.classList.add('user')
-  const img = document.createElement('img');
-  img.src = data.photo;
-  const link = document.createElement('a')
-  link.setAttribute("href", '/users/dashboard')
-  const h2 = document.createElement('h2')
-  h2.textContent = data.username
-  link.appendChild(h2)
-  user.appendChild(link)
-  user.appendChild(img)
-  nav.appendChild(user)
-}
+const imgNav = document.querySelector('.user img');
+const linkUserName = document.querySelector('.user a');
+
 const createPost = (data) => {
   console.log(data.data);
   main.innerHTML = ''
@@ -36,7 +24,6 @@ const createPost = (data) => {
   data.data.forEach(post => {
     const container = document.createElement('div');
     container.classList.add('friends_post');
-
 
     const friendPostTop = document.createElement('div');
     friendPostTop.classList.add('friend_post_top');
@@ -65,13 +52,23 @@ const createPost = (data) => {
     userGroupIcon.classList.add('fa-solid', 'fa-user-group');
 
     timePara.appendChild(userGroupIcon);
+    imgAndName.appendChild(img);
     friendsName.appendChild(friendsNamePara);
     friendsName.appendChild(timePara);
-    imgAndName.appendChild(img);
     imgAndName.appendChild(friendsName);
 
+    const mainContent = document.createElement('div');
+    mainContent.classList.add('mainContent');
+
     const title = document.createElement('p');
-    title.textContent = post.title;
+    title.classList.add('title');
+    title.textContent = data.title;
+
+    const link = document.createElement('a');
+    link.classList.add('live');
+    link.textContent = 'live';
+    link.setAttribute('target', "_blank");
+    link.href = data.url;
 
 
     const img2 = document.createElement('img');
@@ -91,9 +88,11 @@ const createPost = (data) => {
     },100)
 
     friendPostTop.appendChild(imgAndName);
-    container.appendChild(friendPostTop);
-    container.appendChild(title);
     container.appendChild(img2);
+    mainContent.appendChild(title);
+    mainContent.appendChild(link);
+    container.appendChild(mainContent);
+    container.appendChild(friendPostTop);
     info.appendChild(description);
     container.appendChild(info);
 
@@ -124,6 +123,8 @@ userName.addEventListener('click', () => {
     .catch(console.log)
 })
 fetch('/users/posts').then(res => res.json()).then(data => {
+  imgNav.src = data.photo;
+  userName.textContent = data.username;
   createPost(data);
   user(data);
 }

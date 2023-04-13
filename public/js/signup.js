@@ -11,6 +11,6 @@ userForm.addEventListener('submit', (e) => {
     },
     body: JSON.stringify(data)
   })
-    .then(result => result.json())
+    .then(result => result.json()).then(data=>window.location.href = "/")
     .catch(console.log)
 })

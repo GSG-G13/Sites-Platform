@@ -17,18 +17,18 @@ const auth = (req, res, next) => {
             }
         })
     } else {
-        res.send("/users/signinuser")
+        res.redirect("/users/signinuser")
     }
 }
 homeRouter.post('/post',auth, CreatePostController)
 homeRouter.get('/post',auth, GetUserPostsController)
 homeRouter.get('/userfilteredposts/:username',auth,filterpostsController)
 homeRouter.get('/posts', auth, getPosts);
-homeRouter.get('/home', (req, res) => {
+homeRouter.get('/home',auth, (req, res) => {
     res.sendFile(path.join(__dirname, '..', '..', 'public', 'html', 'users', 'home.html'))
 })
 
-homeRouter.get('/dashboard', (req, res) => {
+homeRouter.get('/dashboard',auth, (req, res) => {
     res.sendFile(path.join(__dirname, '..', '..', 'public', 'html', 'users', 'dashboard.html'));
 })
 

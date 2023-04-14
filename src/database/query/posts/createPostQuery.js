@@ -5,7 +5,7 @@ const CreatePost = (userPost, mytoken) => {
   const { title, description, url, photo_website } = userPost;
   const sql = {
     text: " INSERT INTO posts (title, url, description, photo_website, user_id) VALUES ($1,$2,$3,$4,$5)",
-    values: [title, description, url, photo_website, user_id]
+    values: [title, url, description, photo_website, user_id]
   }
   return connection.query(sql);
 }

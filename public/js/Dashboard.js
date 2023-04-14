@@ -2,6 +2,7 @@
 const form = document.querySelector(".form");
 const userName = document.querySelector('.userName')
 const imgNav = document.querySelector('.user img');
+const main = document.querySelector('main');
 //fetch
 
 
@@ -13,7 +14,6 @@ const createPost = (data) => {
 
     const friendPostTop = document.createElement('div');
     friendPostTop.classList.add('friend_post_top');
-
 
     const imgAndName = document.createElement('div');
     imgAndName.classList.add('img_and_name');
@@ -63,9 +63,9 @@ const createPost = (data) => {
 
     const info = document.createElement('div');
     info.classList.add('info');
-    setTimeout(()=>{
+    setTimeout(() => {
       container.style.transform = 'translateX(0px)'
-    },100)
+    }, 100)
 
     friendPostTop.appendChild(imgAndName);
     container.appendChild(img2);
@@ -91,6 +91,7 @@ const FetchData = (obj) => {
   })
     .then((result) => result.json())
     .then((data) => {
+      main.textContent = '';
       createPost(data)
     });
 }
@@ -98,7 +99,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = new FormData(form);
   const newData = Object.fromEntries(data);
-
+  console.log(newData);
   const obj = {
     title: newData.title,
     description: newData.description,
